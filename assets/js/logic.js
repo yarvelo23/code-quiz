@@ -8,6 +8,7 @@ var startScreen = document.getElementById("start-screen");
 var timerEl = document.getElementById("time"); 
 var startBtn = document.getElementById("start");  
 var wrapper = document.querySelector(".wrapper"); 
+var questionsContent = document.getElementById("questions");
 
 // set timer to start at 76, a second is automatically subtracted on button click
 var timeRemaining = 76;
@@ -40,7 +41,21 @@ function displayQuestions(questionIndex) {
   startScreen.innerHTML = "";
   questionsList.innerHTML = "";
 
-  // for loop to call questions array
-};
+  // for loop to display questions from array
+  for (var i = 0; i < questions.length; i++) {
+    var questionTitle = questions[questionIndex].title;
+    var questionChoices = questions[questionIndex].choices;
+    questionsContent.textContent = questionTitle;
+  }
+
+  questionChoices.forEach(function (displayChoices) {
+    var questionChoice = document.createElement("li");
+    questionChoice.textContent = displayChoices;
+    questionsContent.appendChild(questionsList);
+    questionsList.appendChild(questionChoice);
+    questionChoice.addEventListener("click", (checkAnswer));
+  })
+  // TROUBLESHOOT WHY ONLY ONE CHOICE IS DISPLAYING
+}
 
 
