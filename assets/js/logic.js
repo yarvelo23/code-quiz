@@ -55,7 +55,28 @@ function displayQuestions(questionIndex) {
     questionsList.appendChild(questionChoice);
     questionChoice.addEventListener("click", (checkAnswer));
   })
-  // TROUBLESHOOT WHY ONLY ONE CHOICE IS DISPLAYING
+  
 }
 
+// function to compare selected choice with answer
+function checkAnswer(event) {
+  var element = event.target;
+
+  if (element.matches("li")) {
+
+    var createDiv = document.createElement("div");
+    createDiv.setAttribute("id", "createDiv");
+
+    if (element.textContent == questions[questionIndex].answer) {
+      score++;
+      createDiv.textContent = "Correct!"
+    } else {
+
+      timeRemaining = timeRemaining - timePenalty;
+      createDiv.textContent = "Wrong choice, the answer is: " + questions[questionIndex].answer;
+    }
+  
+  }
+
+}
 
