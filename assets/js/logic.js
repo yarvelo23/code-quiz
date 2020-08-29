@@ -4,23 +4,24 @@ var score = 0;
 var questionIndex = 0;
 
 // variables to reference DOM elements
-var questionsEl = document.getElementById("questions"); //CHECK
-var timerEl = document.getElementById("time"); // CHECK
-var startBtn = document.getElementById("start");  // CHECK
-var wrapper = document.querySelector("#wrapper"); // CHECK
+var startScreen = document.getElementById("start-screen");
+var timerEl = document.getElementById("time"); 
+var startBtn = document.getElementById("start");  
+var wrapper = document.querySelector(".wrapper"); 
 
-
-var timeRemaining = 75;
+// set timer to start at 76, a second is automatically subtracted on button click
+var timeRemaining = 76;
 var timeInterval = 0;
 var timePenalty = 5;
 var questionsList = document.createElement("ul");
 
 // on start button click, trigger timer and display first question
 startBtn.addEventListener("click", function () {
+  // checking remaining time and setting text for timer display
   if (timeInterval === 0) {
     timeInterval = setInterval(function () {
       timeRemaining--;
-      timerEl.textContent = "Time Remaining: " + timeRemaining;
+      timerEl.textContent = timeRemaining;
 
       if (timeRemaining <= 0) {
         clearInterval(timeInterval);
@@ -29,7 +30,17 @@ startBtn.addEventListener("click", function () {
       }
     }, 1000);
   }
+  // run the function to display questions and choices
   displayQuestions(questionIndex);
 });
+
+// displays questions and choices after start button is clicked
+function displayQuestions(questionIndex) {
+  // removes original screen content
+  startScreen.innerHTML = "";
+  questionsList.innerHTML = "";
+
+  // for loop to call questions array
+};
 
 
