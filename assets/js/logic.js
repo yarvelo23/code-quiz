@@ -149,4 +149,7 @@ function quizEnd() {
   
   questionsContent.appendChild(submitInitials);
 
+
+submitInitials.addEventListener("click", function () {});
+
 }
