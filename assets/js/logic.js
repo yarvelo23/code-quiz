@@ -83,6 +83,70 @@ function checkAnswer(event) {
   // to keep track of current question
   questionIndex++;
 
+  // conditional statement to check if user has reached the final question
+if (questionIndex >= questions.length) {
+  // if on final question, run the quizEnd function afterward
+  quizEnd();
+  // creating a div to display quiz end alert
+  createDiv.textContent = "End of quiz!" + " " + "Your score is " + score + "/" + questions.length;
+}
+else {
+  // if not on final question, display the next question
+  displayQuestions(questionIndex);
+}
+// appending the next question to the next div that follows
+questionsContent.appendChild(createDiv);
+
 }
 
+// function to display the end quiz screen
+function quizEnd() {
+  // clears question content
+  questionsContent.innerHTML = "";
+  timerEl.innerHTML = "";
+  
+  var createHeader = document.createElement("h1");
+  createHeader.setAttribute("id", "createHeader");
+  createHeader.textContent = "All Done!"
+  
+  questionsContent.appendChild(createHeader);
+  
+  
+  var createP = document.createElement("p");
+  createP.setAttribute("id", "createP");
+  
+  questionsContent.appendChild(createP);
+  
+  if (timeRemaining >= 0) {
+  var secondsLeft = timeRemaining;
+  var createP2 = document.createElement("p");
+  clearInterval(timeInterval);
+  createP.textContent = "Your final score is: " + secondsLeft;
+  
+  questionsContent.appendChild(createP2);
+  }
+  
+  // create display text for initials input
+  var initialsLabel = document.createElement("label");
+  initialsLabel.setAttribute("id", "initialsLabel");
+  initialsLabel.textContent = "Enter your initials: ";
+  
+  questionsContent.appendChild(initialsLabel);
+  
+  // create text box for initials input
+  var initialsInput = document.createElement("input");
+  initialsInput.setAttribute("type", "text");
+  initialsInput.setAttribute("id", "initials");
+  initialsInput.textContent = "";
+  
+  questionsContent.appendChild(initialsInput);
+  
+  // create button to allow for submitting initials input
+  var submitInitials = document.createElement("button");
+  submitInitials.setAttribute("type", "submit");
+  submitInitials.setAttribute("id", "Submit");
+  submitInitials.textContent = "Submit";
+  
+  questionsContent.appendChild(submitInitials);
 
+}
