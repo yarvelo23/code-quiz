@@ -1,6 +1,7 @@
 // variable to keep track of score
 var score = 0;
 
+// keep track of the current question
 var questionIndex = 0;
 
 // variables to reference DOM elements
@@ -9,6 +10,7 @@ var timerEl = document.getElementById("time");
 var startBtn = document.getElementById("start");  
 var wrapper = document.querySelector(".wrapper"); 
 var questionsContent = document.getElementById("questions");
+
 
 // set timer to start at 76, a second is automatically subtracted on button click
 var timeRemaining = 76;
@@ -78,5 +80,9 @@ function checkAnswer(event) {
   
   }
 
+  // to keep track of current question
+  questionIndex++;
+
 }
+
 
