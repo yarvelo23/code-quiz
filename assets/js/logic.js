@@ -150,6 +150,13 @@ function quizEnd() {
   questionsContent.appendChild(submitInitials);
 
 
-submitInitials.addEventListener("click", function () {});
+submitInitials.addEventListener("click", function () {
+  var initials = createInput.value;
+
+  if (initials === null) {
+
+   console.log("Please enter valid initials!");
+ }
+});
 
 }
