@@ -8,4 +8,7 @@ https://yarvelo23.github.io/code-quiz/
 Please refer to the below screenshots for a preview of the different aspects of the application.
 
 ![QuizStartScreen](/assets/img/QuizStartScreen.png)
-Format: ![Alt Text](url)
+
+![QuizQuestionScreen](/assets/img/QuizQuestionScreen.png)
+
+![QuizEndScreen](/assets/img/QuizEndScreen.png)
